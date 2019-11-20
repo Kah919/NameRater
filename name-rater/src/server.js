@@ -2,6 +2,9 @@ const Data = require('./data.js')
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 app.get('/api/names', (req, res) => {
     res.json(Data);
