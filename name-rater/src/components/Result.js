@@ -21,7 +21,7 @@ class Result extends Component {
         // console.log(this.state.list)
         return(
             <>
-                <h1> HI </h1>
+                <h1> HI From The Results Component</h1>
             </>
         )
     }
