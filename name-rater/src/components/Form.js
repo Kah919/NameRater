@@ -20,11 +20,12 @@ class Form extends Component {
     render() {
         return(
             <div>
+                <h1>What's Your Name?</h1>
                 <form>
                     <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/>
                     <input type='submit' onSubmit={this.handleSubmit}/>
                 </form>
-                <Result />
+                {/* <Result /> */}
             </div>
         )
     }
