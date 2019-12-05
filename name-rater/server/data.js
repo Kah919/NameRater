@@ -1,6 +1,5 @@
-module.exports = {
+const names =  {
     female: [
-    {name: "", count: 0},
     {name: "Olivia", count: 17921},
     {name: "Ava", count: 14924},
     {name: "Isabella", count: 14464},
@@ -18032,7 +18031,6 @@ module.exports = {
 ],
 
     male: [
-    {name: "", count: 0},
     {name: "Liam", count: 19837},
     {name: "Noah", count: 18267},
     {name: "William", count: 14516},
@@ -32038,5 +32036,22 @@ module.exports = {
     {name: "Zyron", count: 5},
     {name: "Zzyzx", count: 5}
     ]
+}
+
+const giveID = data => {
+    return data.map((person, id) => {
+        return {
+            name: person.name,
+            count: person.count,
+            _id: id
+        }
+    })
+}
+
+console.log(giveID(names.male))
+
+module.exports = {
+    female: [giveID(names.female)],
+    male: [giveID(names.male)]
 }
 

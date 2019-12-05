@@ -2,13 +2,12 @@ const Data = require('./data.js');
 const express = require('express');
 const app = express();
 require("dotenv").config()
-// const cors = require('cors');
 const mongoose = require('mongoose');
 console.log(process.env.DB_USERNAME)
-// mongoose.connect(`mongodb+srv${process.env.DB_USERNAME}:${process.env.DB_PW}//:@cluster0-ktml6.mongodb.net/test?retryWrites=true&w=majority`);
-// console.log(Data)
-
-// app.use(cors()); 
+mongoose.connect(`mongodb+srv${process.env.DB_USERNAME}:${process.env.DB_PW}//:@cluster0-ktml6.mongodb.net/test?retryWrites=true&w=majority`);
+const Male = require('./models/male');
+const Female = require('./models/female');
+console.log(Data)
 
 app.get('/api/names', (req, res) => {
     res.json(Data);
