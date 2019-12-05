@@ -32051,7 +32051,7 @@ const giveID = data => {
 console.log(giveID(names.male))
 
 module.exports = {
-    female: [giveID(names.female)],
-    male: [giveID(names.male)]
+    female: giveID(names.female),
+    male: giveID(names.male)
 }
 

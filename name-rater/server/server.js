@@ -26,7 +26,13 @@ app.get('/api/names/female', (req, res) => {
 });
 
 app.get('/api/names/female/:id', (req, res) => {
-    const person = Data.female[parseInt(req.params.id)];
+    const person = Data.female.find(x => x._id === parseInt(req.params.id))
+    if(!person) res.status(404).send('Name not found');
+    res.send(person);
+});
+
+app.get('/api/names/male/:id', (req, res) => {
+    const person = Data.male.find(x => x._id === parseInt(req.params.id))
     if(!person) res.status(404).send('Name not found');
     res.send(person);
 });
