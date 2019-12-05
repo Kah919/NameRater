@@ -32045,7 +32045,7 @@ const giveID = data => {
             count: person.count,
             _id: id
         }
-    })
+    });
 }
 
 console.log(giveID(names.male))
