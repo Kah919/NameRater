@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const maleSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    name: String,
-    count: Number
+const MaleSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    count: {
+        type: Number,
+        default: 1
+    }
 });
 
-module.exports = mongoose.model('Male', maleSchema);
+module.exports = Male = mongoose.model('Male', MaleSchema);

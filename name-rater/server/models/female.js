@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const femaleSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    name: String,
-    count: Number
+const FemaleSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    count: {
+        type: Number,
+        default: 1
+    }
 });
 
-module.exports = mongoose.model('Female', femaleSchema);
+module.exports = Female = mongoose.model('Female', FemaleSchema);
