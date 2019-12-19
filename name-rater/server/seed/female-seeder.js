@@ -1,29 +1,30 @@
 const mongoose = require('mongoose');
 const Female = require('../models/Female');
 const Data = require('../data.js').female;
+require("dotenv").config();
 
-let done = 0;
+const db = require('../config/keys').mongoURI;
 
-const seedData = data => {
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
+async function seedNames(data) {
     for(let i = 0; i < data.length; i++) {
-        const name = new Female({
-            name: data.name,
-            count: data.count
-        });
-
-        name.save((err, result) => {
-            done++;
-            if(done === Data.length) {
-                exit();
-            }
-        });
+        try {
+            const newName = await Female.create({
+                name: data[i].name,
+                count: data[i].count
+            })
+        } catch(e) {
+            console.log(e.message);
+            continue;
+        }
     }
-}
-
-const exit = () => {
-    mongoose.disconnect();
-    console.log('exiting')
-}
-
-seedData(Data);
+  }
+  
+  seedNames(Data)
+    .then(() => {
+      mongoose.disconnect();
+    })
 
