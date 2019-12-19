@@ -49,7 +49,7 @@ router.delete('/female/:id', (req, res) => {
 })
 
 router.delete('/male/:id', (req, res) => {
-    Female.findById(req.params.id)
+    Male.findById(req.params.id)
         .then(name => name.remove().then(() => res.json({ success : true })))
         .catch(err => res.status(404).json({success : false}))
 })
