@@ -1,4 +1,3 @@
-const Data = require('./data.js');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -16,7 +15,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(err => console.log(err));
 
 // Use routes
-app.use('/api/names', name);
+app.use('/api/names', name); // using the routes file called name and giving /api/names to all of the requests  
 
 const port = 5000;
 
