@@ -32034,7 +32034,7 @@ const names =  {
     {name: "Zyran", count: 5},
     {name: "Zyrie", count: 5},
     {name: "Zyron", count: 5},
-    {name: "Zzyzx", count: 5}
+    {name: "Zzyzx", count: 5},
     ]
 }
 
