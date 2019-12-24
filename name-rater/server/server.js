@@ -6,8 +6,9 @@ const Male = require('./models/Male');
 const Female = require('./models/Female');
 require("dotenv").config();
 const name = require('./routes/api/names');
+const cors = require('cors');
 const bodyParser = require('body-parser'); // allow us to take request and get data from the body 
-app.use(bodyParser.json());
+app.use(bodyParser.json(), cors());
 
 const db = require('./config/keys').mongoURI;
 
