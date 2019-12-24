@@ -26,7 +26,11 @@ class Result extends Component {
     render() {
         // console.log(this.props.location.formProps.sex)
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log(this.state.results)
+=======
+        // console.log(this.state.results)
+>>>>>>> e173a05b37faec1212b74132eec70227299c4fd0
 =======
         // console.log(this.state.results)
 >>>>>>> e173a05b37faec1212b74132eec70227299c4fd0
