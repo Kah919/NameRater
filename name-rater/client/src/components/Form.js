@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-// import ResultContainer from '../containers/ResultContainer'
-// import Result  from './Result';
-// import { Link } from 'react-router-dom';
+import ResultContainer from '../containers/ResultContainer'
+import Result  from './Result';
+import { Link } from 'react-router-dom';
 // import { response } from 'express';
 
 class Form extends Component {
     state = {
         sex: "",
         name: "",
-        submit: false
-        // names: []
+        submit: false,
+        names: []
     }
 
     handleDropDown = (event) => {
@@ -24,15 +24,15 @@ class Form extends Component {
     }
 
     handleChange = (event) => {
-        // let lower = event.target.value.toLowerCase()
-        // let normalized = lower.charAt(0).toUpperCase() + lower.slice(1)
+        let lower = event.target.value.toLowerCase()
+        let normalized = lower.charAt(0).toUpperCase() + lower.slice(1)
         this.setState({
             name: event.target.value
         })
     }
 
     render() {
-        // console.log(this.state)
+        console.log(this.state)
         return(
             <div>
                 {
@@ -41,15 +41,15 @@ class Form extends Component {
                         <h1>What's Your Name?</h1>
                         <form onSubmit={this.handleSubmit}>
                             <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/>
-                            {/* <Link to={{
+                            <Link to={{
                                 pathname: './results',
                                 formProps:{
                                     name: this.state.name,
                                     sex: this.state.sex
                                 }
-                            }}> */}
+                            }}>
                                 <input type='submit'/>
-                            {/* </Link> */}
+                            </Link>
                         </form>
                         {/* <Result /> */}
                     </div>

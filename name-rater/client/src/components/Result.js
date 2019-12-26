@@ -2,41 +2,34 @@ import React, { Component } from 'react';
 
 class Result extends Component {
     state = {
-        results: []
+        results: {}
     }
 
-<<<<<<< HEAD
     componentDidMount() {
-        fetch(`http://localhost:5000/api/names/${this.props.location.formProps.sex}`)
+        const params = this.props.location.formProps;
+        fetch(`http://localhost:5000/api/names/${params.sex}`)
             .then(res => res.json())
-            .then(data => this.setState({results: data}))
+            .then(data => {
+                const person = data.find(info => info.name === params.name)
+                this.setState({
+                    results: person
+                })
+            })
     }
-=======
-    // componentDidMount() {
-    //     fetch(`http://localhost:5000/api/names/${this.props.location.formProps.sex}`)
-    //         .then(res => res.json())
-    //         .then(data => this.setState({results: data}))
-    // }
->>>>>>> e173a05b37faec1212b74132eec70227299c4fd0
 
     // fetch(`http://localhost:5000/api/names/${this.state.sex}`)
     //         .then(res => res.json())
     //         .then(data => console.log(data))
 
     render() {
-        // console.log(this.props.location.formProps.sex)
-<<<<<<< HEAD
-<<<<<<< HEAD
+        console.log("HI",this.props.location.formProps)
         console.log(this.state.results)
-=======
-        // console.log(this.state.results)
->>>>>>> e173a05b37faec1212b74132eec70227299c4fd0
-=======
-        // console.log(this.state.results)
->>>>>>> e173a05b37faec1212b74132eec70227299c4fd0
         return(
             <>
                 <h1> HI From The Results Component</h1>
+                <h2>{this.state.results.name}</h2>
+                <h2>{this.state.results.count}</h2>
+                <h2>{this.props.location.formProps.sex}</h2>
             </>
         )
     }

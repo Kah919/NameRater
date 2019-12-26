@@ -1,7 +1,6 @@
 const Data = require('./data.js');
 const express = require('express');
 const app = express();
-// const cors = require('cors')
 const mongoose = require('mongoose');
 const Male = require('./models/Male');
 const Female = require('./models/Female');
@@ -19,9 +18,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Use routes
 app.use('/api/names', name);
-
-// app.use(cors())
-
 // app.get('/api/names', function (req, res, next) {
 //     res.json({msg: 'This is CORS-enabled for all origins!'})
 //   })  
