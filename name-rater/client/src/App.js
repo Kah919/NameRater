@@ -10,14 +10,7 @@ class App extends Component {
     femaleNames: [],
     maleNames: []
   }
-// we have to decide where we want to make the fetch request
-  // componentDidMount() {
-  //   fetch(`http://localhost:5000/api/names/female`)
-  //     .then(res => res.json())
-  //     .then(console.log)
-  // }
   
-
   render() {
     return (
       // Switch matches the 'path' to the first URL param that comes up;

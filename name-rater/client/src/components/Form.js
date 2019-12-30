@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ResultContainer from '../containers/ResultContainer'
 import Result  from './Result';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 // import { response } from 'express';
 
 class Form extends Component {
@@ -24,12 +24,29 @@ class Form extends Component {
     }
 
     handleChange = (event) => {
-        this.setState({
-            name: event.target.value
-        })
+        let charCode = ""
+        if(!this.state.name) {
+            charCode = event.target.value.charCodeAt()
+        } else {
+            if(this.state.name.length > 1) {
+                charCode = event.target.value.charCodeAt(this.state.name.length)
+            }
+        }
+        console.log('outside: ', charCode)
+        if(charCode >= 65 && charCode <= 90) {
+            console.log('inside: ', charCode)
+            this.setState({
+                name: event.target.value
+            })
+        } else {
+            console.log(this.state.name)
+        }
     }
 
     render() {
+        if(this.state.submit){
+            return <Redirect to='/Result' />
+        }
         return(
             <div>
                 {
@@ -38,15 +55,15 @@ class Form extends Component {
                         <h1>What's Your Name?</h1>
                         <form onSubmit={this.handleSubmit}>
                             <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/>
-                            <Link to={{
+                            {/* <Link to={{
                                 pathname: './results',
                                 formProps:{
                                     name: this.state.name,
                                     sex: this.state.sex
                                 }
-                            }}>
+                            }}> */}
                                 <input type='submit'/>
-                            </Link>
+                            {/* </Link> */}
                         </form>
                         {/* <Result /> */}
                     </div>

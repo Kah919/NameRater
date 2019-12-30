@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 class Result extends Component {
     state = {
-        results: {}
+        user: {},
+        prevFive: {},
+        nextFive: {}
     }
 
     componentDidMount() {
@@ -16,21 +18,19 @@ class Result extends Component {
                 person.index = data.findIndex(ele => ele.name === normalized) + 1
 
                 this.setState({
-                    results: person
+                    user: person
                 })
             })
     }
 
     render() {
-        console.log("HI",this.props.location.formProps)
-        console.log(this.state.results)
         return(
             <>
-                <h1> HI From The Results Component</h1>
-                <h2>Name: {this.state.results.name}</h2>
-                <h2>Rank: {this.state.results.index}</h2>
-                <h2>How many people share your name: {this.state.results.count}</h2>
-                <h2>Gender: {this.props.location.formProps.sex}</h2>
+                <h1>Results!</h1>
+                <h2>{this.state.user.index}. {this.state.user.name}</h2>
+                {/* <h2>Rank: {this.state.results.index}</h2> */}
+                {/* <h2>People born with your name in 2019: {this.state.results.count}</h2> */}
+                {/* <h2>Gender: {this.props.location.formProps.sex}</h2> */}
             </>
         )
     }
