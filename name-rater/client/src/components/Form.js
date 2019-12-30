@@ -24,12 +24,8 @@ class Form extends Component {
     }
 
     handleChange = (event) => {
-        // Variables lower and normalize alter the user input directly, in the input search bar user will be able to see changes
-        let lower = event.target.value.toLowerCase()
-        let normalized = lower.charAt(0).toUpperCase() + lower.slice(1)
         this.setState({
-            // name: event.target.value
-            name: normalized
+            name: event.target.value
         })
     }
 

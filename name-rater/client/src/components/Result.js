@@ -7,11 +7,13 @@ class Result extends Component {
 
     componentDidMount() {
         const params = this.props.location.formProps;
+        let lower = params.name.toLowerCase()
+        let normalized = lower.charAt(0).toUpperCase() + lower.slice(1)
         fetch(`http://localhost:5000/api/names/${params.sex}`)
             .then(res => res.json())
             .then(data => {
-                const person = data.find(info => info.name === params.name)
-                person.index = data.findIndex(ele => ele.name === params.name) + 1
+                const person = data.find(info => info.name === normalized)
+                person.index = data.findIndex(ele => ele.name === normalized) + 1
 
                 this.setState({
                     results: person
