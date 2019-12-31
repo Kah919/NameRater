@@ -24,29 +24,39 @@ class Form extends Component {
     }
 
     handleChange = (event) => {
-        let charCode = ""
-        if(!this.state.name) {
-            charCode = event.target.value.charCodeAt()
-        } else {
-            if(this.state.name.length > 1) {
-                charCode = event.target.value.charCodeAt(this.state.name.length)
-            }
+        let charCode = this.findCharCode(event.target.value)
+        this.backSpace(charCode);
+        this.validInput(charCode, event.target.value);
+    }
+
+    findCharCode = (value) => {
+        if(!this.state.name.length) {
+            return value.charCodeAt()
+        } else if(this.state.name.length >= 1) {
+            return value.charCodeAt(this.state.name.length)
         }
-        console.log('outside: ', charCode)
-        if(charCode >= 65 && charCode <= 90) {
-            console.log('inside: ', charCode)
+    }
+
+    backSpace = charCode => {
+        if(!charCode) {
             this.setState({
-                name: event.target.value
+                name: this.state.name.slice(0, -1)
             })
-        } else {
-            console.log(this.state.name)
+        }
+    }
+
+    validInput = (charCode, value) => {
+        if((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || (charCode === 127)) {
+            this.setState({
+                name: value
+            })
         }
     }
 
     render() {
-        if(this.state.submit){
-            return <Redirect to='/Result' />
-        }
+        // if(this.state.submit){
+        //     return <Redirect to='/Result' />
+        // }
         return(
             <div>
                 {
