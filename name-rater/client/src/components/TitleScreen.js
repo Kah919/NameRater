@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // Link is a method found in Browser Router that functions like an <a> tag
 import { Link } from 'react-router-dom';
+import ErrorModal from './ErrorModal'
 
 class TitleScreen extends Component {
     render() {
