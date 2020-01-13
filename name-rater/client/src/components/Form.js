@@ -6,6 +6,7 @@ import ErrorModal from './ErrorModal';
 import GenderForm from './GenderForm';
 import NameForm from './NameForm';
 
+
 class Form extends Component {
     state = {
         sex: "",
@@ -49,11 +50,11 @@ class Form extends Component {
     }
 
     validInput = (charCode, value) => {
-        if((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || (charCode === 127)) {
+        if((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
             this.setState({
                 name: value
             })
-        } else {
+        } else if(charCode){
             this.setState({
                 modal: true
             })
