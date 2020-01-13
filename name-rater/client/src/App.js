@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import Form from './components/Form';
 import TitleScreen from './components/TitleScreen'
 import Result from './components/Result'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   state = {

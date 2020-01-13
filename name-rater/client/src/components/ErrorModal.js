@@ -8,7 +8,7 @@ class ErrorModal extends Component {
             <div>
                 <Modal isOpen={ this.props.isOpen } toggle={ this.props.stopModal }>
                     <ModalHeader toggle={this.toggle}> Hmmm... please only include alphabets </ModalHeader>
-                    <Button color="dark" style={{marginBottom: '2rem'}} onClick={ this.props.stopModal }> X </Button>
+                    <Button color="dark" onClick={ this.props.stopModal }> X </Button>
                 </Modal>
             </div>
         )
