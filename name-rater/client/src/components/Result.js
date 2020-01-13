@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Result extends Component {
     state = {
         user: {},
-        prevFive: {},
-        nextFive: {}
+        prevFive: [],
+        nextFive: []
     }
 
     componentDidMount() {
@@ -16,14 +16,46 @@ class Result extends Component {
             .then(data => {
                 const person = data.find(info => info.name === normalized)
                 person.index = data.findIndex(ele => ele.name === normalized) + 1
+                const curr = person.index
+
+                const prevFive = this.prevFive(data, curr);
+                const nextFive = this.nextFive(data, curr);
 
                 this.setState({
-                    user: person
+                    user: person,
+                    prevFive,
+                    nextFive
                 })
             })
+            .catch(err => console.log(err))
+    }
+
+    prevFive = (data, idx) => {
+        let arr = [];
+        let curr = idx - 6;
+        while(curr + 1 < idx) {
+            const newData = data[curr];
+            newData.index = curr;
+            arr.push(newData);
+            curr++;
+        }
+        return arr;
+    }
+
+    nextFive = (data, idx) => {
+        let arr = [];
+        let curr = idx;
+        while(curr < idx + 5) {
+            const newData = data[curr];
+            newData.index = curr;
+            arr.push(newData);
+            curr++;
+        }
+        return arr;
     }
 
     render() {
+        console.log(this.state)
         return(
             <>
                 <h1>Results!</h1>

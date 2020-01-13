@@ -23,7 +23,8 @@ class Form extends Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        console.log("submitting", this.state.name)
         this.setState({submit: !this.state.submit})
     }
 
@@ -71,7 +72,7 @@ class Form extends Component {
         return(
             <div>
                 { this.state.modal ? <ErrorModal stopModal={ this.stopModal } isOpen={ this.state.modal }/> : null }
-                { !!this.state.sex ? <NameForm value={ this.state.name } handleSubmit={ this.handleSubmit } handleChange={ this.handleChange }/> : <GenderForm handleDropDown={ this.handleDropDown } /> }
+                { !!this.state.sex ? <NameForm value={ this.state.name } handleSubmit={ this.handleSubmit } handleChange={ this.handleChange } sex={ this.state.sex }/> : <GenderForm handleDropDown={ this.handleDropDown } /> }
             </div>
         )
     }
