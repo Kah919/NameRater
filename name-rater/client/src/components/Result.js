@@ -30,6 +30,10 @@ class Result extends Component {
             .catch(err => console.log(err))
     }
 
+    renderPrevFive = () => {
+        return this.state.prevFive.map(item => <h2>{item.index}. {item.name}</h2>)
+    }
+
     prevFive = (data, idx) => {
         let arr = [];
         let curr = idx - 6;
@@ -40,6 +44,10 @@ class Result extends Component {
             curr++;
         }
         return arr;
+    }
+
+    renderNextFive = () => {
+        return this.state.nextFive.map(item => <h2>{item.index}. {item.name}</h2>)
     }
 
     nextFive = (data, idx) => {
@@ -59,7 +67,9 @@ class Result extends Component {
         return(
             <>
                 <h1>Results!</h1>
+                {this.renderPrevFive()}
                 <h2>{this.state.user.index}. {this.state.user.name}</h2>
+                {this.renderNextFive()}
                 {/* <h2>Rank: {this.state.results.index}</h2> */}
                 {/* <h2>People born with your name in 2019: {this.state.results.count}</h2> */}
                 {/* <h2>Gender: {this.props.location.formProps.sex}</h2> */}
