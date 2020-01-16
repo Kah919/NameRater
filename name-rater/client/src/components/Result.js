@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from './Loading';
 
 class Result extends Component {
     state = {
@@ -31,7 +32,7 @@ class Result extends Component {
     }
 
     renderPrevFive = () => {
-        return this.state.prevFive.map(item => <h2>{item.index}. {item.name}</h2>)
+        return this.state.prevFive.map(item => <h2>{item.index}. {item.name} - {item.count * 20}x</h2>)
     }
 
     prevFive = (data, idx) => {
@@ -47,7 +48,7 @@ class Result extends Component {
     }
 
     renderNextFive = () => {
-        return this.state.nextFive.map(item => <h2>{item.index}. {item.name}</h2>)
+        return this.state.nextFive.map(item => <h2>{item.index}. {item.name} - {item.count * 20}x</h2>)
     }
 
     nextFive = (data, idx) => {
@@ -65,15 +66,13 @@ class Result extends Component {
     render() {
         console.log(this.state)
         return(
+            !this.state.user.name ? <Loading /> :
             <>
                 <h1>Results!</h1>
                 {this.renderPrevFive()}
-                <h2>{this.state.user.index}. {this.state.user.name}</h2>
+                <h2>{this.state.user.index}. {this.state.user.name} - {this.state.user.count * 20}x</h2>
                 {this.renderNextFive()}
-                {/* <h2>Rank: {this.state.results.index}</h2> */}
-                {/* <h2>People born with your name in 2019: {this.state.results.count}</h2> */}
-                {/* <h2>Gender: {this.props.location.formProps.sex}</h2> */}
-            </>
+            </> 
         )
     }
 }
