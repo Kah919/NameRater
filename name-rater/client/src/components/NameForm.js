@@ -18,7 +18,6 @@ class NameForm extends Component {
                         <input type='submit'/>
                         </Link>
                 </form>
-                        {/* <Result /> */}
                 </div>
         )
     }

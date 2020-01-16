@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import Loading from './Loading';
+import { Redirect } from 'react-router'
+
+
 
 class Result extends Component {
     state = {
         user: {},
         prevFive: [],
         nextFive: [],
-        loading: true
+        loading: true,
+        redirect: false
     }
 
     componentDidMount() {
@@ -30,7 +34,12 @@ class Result extends Component {
                     loading: false
                 })
             })
-            .catch(err => alert("Congradulations! Your name is supe rare and has not been updated in our database yet!"))
+            .catch(err => {
+                alert(`Congradulations! Your name ${this.props.location.formProps.name} is super rare and has not been updated in our database yet! Redirecting back to home page...`);
+                this.setState({
+                    redirect: true
+                })
+            })
     }
 
     renderPrevFive = () => {
@@ -65,9 +74,16 @@ class Result extends Component {
         return arr;
     }
 
+    isRedirect = () => {
+        if(this.state.redirect) {
+            return <Redirect to="/search" />
+        }
+    }
+
     render() {
-        console.log(this.state)
+        
         return(
+            this.state.redirect ? this.isRedirect() : 
             this.state.loading ? <Loading /> :
             <>
                 <h1>Results!</h1>

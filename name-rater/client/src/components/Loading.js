@@ -4,14 +4,14 @@ import styled from 'styled-components';
 
 export default () => {
     const Img = styled.img`
-    height: 100vh;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+        height: 100vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     `;
 
     const Div = styled.div`
-    background-color: purple;
+        background-color: purple;
     `;
     
     return(
