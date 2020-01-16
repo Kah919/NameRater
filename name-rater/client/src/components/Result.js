@@ -5,7 +5,8 @@ class Result extends Component {
     state = {
         user: {},
         prevFive: [],
-        nextFive: []
+        nextFive: [],
+        loading: true
     }
 
     componentDidMount() {
@@ -25,10 +26,11 @@ class Result extends Component {
                 this.setState({
                     user: person,
                     prevFive,
-                    nextFive
+                    nextFive,
+                    loading: false
                 })
             })
-            .catch(err => console.log(err))
+            .catch(err => alert("Congradulations! Your name is supe rare and has not been updated in our database yet!"))
     }
 
     renderPrevFive = () => {
@@ -66,7 +68,7 @@ class Result extends Component {
     render() {
         console.log(this.state)
         return(
-            !this.state.user.name ? <Loading /> :
+            this.state.loading ? <Loading /> :
             <>
                 <h1>Results!</h1>
                 {this.renderPrevFive()}

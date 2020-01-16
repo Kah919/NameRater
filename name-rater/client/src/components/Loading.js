@@ -8,11 +8,15 @@ export default () => {
     display: block;
     margin-left: auto;
     margin-right: auto;
-`;
+    `;
+
+    const Div = styled.div`
+    background-color: purple;
+    `;
     
     return(
-        <div>
+        <Div>
             <Img src={Loading} alt="loading"></Img>
-        </div>
+        </Div>
     )
 }
