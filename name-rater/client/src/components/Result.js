@@ -43,23 +43,33 @@ class Result extends Component {
     }
 
     renderPrevFive = () => {
-        return this.state.prevFive.map(item => <h2>{item.index}. {item.name} - {item.count * 20}x</h2>)
+            return this.state.prevFive.map(item => <h2>{item.index}. {item.name} - {item.count * 20}x</h2>)
     }
 
     prevFive = (data, idx) => {
+        // data index starts at 0 so curr starts at 1 so we need to normalize the curr or change the curr variable in the fetch
+        // while loop starts at the max end of curr, change while loop to start at the idx of the current input - 1 instead of the end of the array
+        // change push to unshift into array
+        // change the condition and the indexing to idx instead curr
+        // change curr in the fetch to correlate to the indexing of the data(starts at 0)?
+        // use curr as the end conditon for the loop, decrement idx instead
         let arr = [];
         let curr = idx - 6;
         while(curr + 1 < idx) {
             const newData = data[curr];
-            newData.index = curr;
-            arr.push(newData);
-            curr++;
+            if(newData){
+                newData.index = curr + 1;
+                arr.push(newData);
+                curr++;
+            }else {
+                break
+            }
         }
         return arr;
     }
 
     renderNextFive = () => {
-        return this.state.nextFive.map(item => <h2>{item.index}. {item.name} - {item.count * 20}x</h2>)
+        return this.state.nextFive.map(item => <h2>{item.index + 1}. {item.name} - {item.count * 20}x</h2>)
     }
 
     nextFive = (data, idx) => {
