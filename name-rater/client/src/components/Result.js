@@ -14,30 +14,35 @@ class Result extends Component {
     }
 
     componentDidMount() {
-        const params = this.props.location.formProps;
-        let lower = params.name.toLowerCase()
-        let normalized = lower.charAt(0).toUpperCase() + lower.slice(1)
-        fetch(`http://localhost:5000/api/names/${params.sex}`)
-            .then(res => res.json())
-            .then(data => {
-                const person = this.createPerson(data, normalized)
-                const curr = person.index
-                const prevFive = this.prevFive(data, curr);
-                const nextFive = this.nextFive(data, curr);
+        if(!this.props.location.formProps){
+            this.setState({redirect: true})
+        } else {
+            const params = this.props.location.formProps;
+            let lower = params.name.toLowerCase()
+            let normalized = lower.charAt(0).toUpperCase() + lower.slice(1)
+            fetch(`http://localhost:5000/api/names/${params.sex}`)
+                .then(res => res.json())
+                .then(data => {
+                    const person = this.createPerson(data, normalized)
+                    const curr = person.index
+                    const prevFive = this.prevFive(data, curr);
+                    const nextFive = this.nextFive(data, curr);
 
-                this.setState({
-                    user: person,
-                    prevFive,
-                    nextFive,
-                    loading: false
+                    this.setState({
+                        user: person,
+                        prevFive,
+                        nextFive,
+                        loading: false
+                    })
                 })
-            })
-            .catch(err => {
-                alert(`Congradulations! Your name ${this.props.location.formProps.name} is super rare and has not been updated in our database yet! Redirecting back to home page...`);
-                this.setState({
-                    redirect: true
+                .catch(err => {
+                    alert(`Congradulations! Your name ${this.props.location.formProps.name} is super rare and has not been updated in our database yet! Redirecting back to home page...`);
+                    this.setState({
+                        redirect: true
+                    })
                 })
-            })
+        }
+            
     }
 
     createPerson = (data, normalized) => {
