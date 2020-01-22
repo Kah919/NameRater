@@ -52,7 +52,7 @@ class Result extends Component {
     }
 
     renderPrevFive = () => {
-            return this.state.prevFive.map(item => <h2>{item.index}. {item.name} - {item.count * 20}x</h2>)
+            return this.state.prevFive.map(item => <h2 key={`${item.name}${item.index}`}>{item.index}. {item.name} - {item.count * 20}x</h2>)
     }
 
     prevFive = (data, idx) => {
@@ -72,7 +72,7 @@ class Result extends Component {
     }
 
     renderNextFive = () => {
-        return this.state.nextFive.map(item => <h2>{item.index + 1}. {item.name} - {item.count * 20}x</h2>)
+        return this.state.nextFive.map(item => <h2 key={`${item.name}${item.index}`}>{item.index + 1}. {item.name} - {item.count * 20}x</h2>)
     }
 
     nextFive = (data, idx) => {
