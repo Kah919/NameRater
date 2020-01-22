@@ -20,10 +20,8 @@ class Result extends Component {
         fetch(`http://localhost:5000/api/names/${params.sex}`)
             .then(res => res.json())
             .then(data => {
-                const person = data.find(info => info.name === normalized)
-                person.index = data.findIndex(ele => ele.name === normalized) + 1
+                const person = this.createPerson(data, normalized)
                 const curr = person.index
-
                 const prevFive = this.prevFive(data, curr);
                 const nextFive = this.nextFive(data, curr);
 
@@ -42,29 +40,29 @@ class Result extends Component {
             })
     }
 
+    createPerson = (data, normalized) => {
+        const person = data.find(info => info.name === normalized)
+        person.index = data.findIndex(ele => ele.name === normalized) + 1
+        return person
+    }
+
     renderPrevFive = () => {
             return this.state.prevFive.map(item => <h2>{item.index}. {item.name} - {item.count * 20}x</h2>)
     }
 
     prevFive = (data, idx) => {
-        // data index starts at 0 so curr starts at 1 so we need to normalize the curr or change the curr variable in the fetch
-        // while loop starts at the max end of curr, change while loop to start at the idx of the current input - 1 instead of the end of the array
-        // change push to unshift into array
-        // change the condition and the indexing to idx instead curr
-        // change curr in the fetch to correlate to the indexing of the data(starts at 0)?
-        // use curr as the end conditon for the loop, decrement idx instead
         let arr = [];
-        let curr = idx - 6;
-        while(curr + 1 < idx) {
-            const newData = data[curr];
-            if(newData){
-                newData.index = curr + 1;
-                arr.push(newData);
-                curr++;
-            }else {
-                break
-            }
+        let counter = 5;
+        let newIdx = idx - 2
+    
+        while(counter && data[newIdx]) {
+            const newData = data[newIdx];
+            newData.index = newIdx + 1;
+            arr.unshift(newData);
+            counter--;
+            newIdx--;
         }
+
         return arr;
     }
 
@@ -74,13 +72,17 @@ class Result extends Component {
 
     nextFive = (data, idx) => {
         let arr = [];
-        let curr = idx;
-        while(curr < idx + 5) {
-            const newData = data[curr];
-            newData.index = curr;
+        let counter = 5;
+        let newIdx = idx
+    
+        while(counter && data[newIdx]) {
+            const newData = data[newIdx];
+            newData.index = newIdx;
             arr.push(newData);
-            curr++;
+            counter--;
+            newIdx++
         }
+
         return arr;
     }
 
