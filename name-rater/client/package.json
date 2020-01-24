@@ -10,6 +10,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.7.12",
     "node": "^13.1.0",
+    "pokemon-font": "^1.8.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
