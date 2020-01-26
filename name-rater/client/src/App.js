@@ -5,14 +5,18 @@ import Form from './components/Form';
 import TitleScreen from './components/TitleScreen'
 import Result from './components/Result'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import audio from './audio.mp3';
 
 class App extends Component {
   state = {
     femaleNames: [],
     maleNames: []
   }
+
+  audio = new Audio(audio);
   
   render() {
+    {this.audio.play()}
     return (
       // Switch matches the 'path' to the first URL param that comes up;
       // 'exact' is a key word, it requires  the path to match the URL exact; 

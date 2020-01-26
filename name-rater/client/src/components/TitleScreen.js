@@ -8,14 +8,15 @@ import Text from './text';
 const Div = styled.div`
     border: 5px solid black;
     border-style: double;
-    position: absolute;
-    bottom: 0;
-    height: 35%;
     width: 100%;
     border-radius: 10px;
-    font-size: 4rem;
+    font-size: 5rem;
     padding: 2%;
     font-family: 'pokemon-font', monospace;
+`;
+
+const Container = styled.div`
+    height: 100vh;
 `;
 
 const Img = styled.img`
@@ -63,12 +64,12 @@ class TitleScreen extends Component {
     render() {
         return (
             this.state.redirect ? this.isRedirect() : 
-            <>
+            <Container>
                 <Img src={Oak} alt="Oak"></Img>
                 <Div onClick={ this.nextText }>
                     {this.text()}
                 </Div>  
-            </>
+            </Container>
         )
     }    
 }
