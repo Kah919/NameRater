@@ -10,13 +10,15 @@ const Div = styled.div`
     border-style: double;
     width: 100%;
     border-radius: 10px;
-    font-size: 5rem;
+    font-size: 4vw;
     padding: 2%;
     font-family: 'pokemon-font', monospace;
 `;
 
 const Container = styled.div`
     height: 100vh;
+    display: grid;
+    grid-template-rows: 5fr 1fr;
 `;
 
 const Img = styled.img`

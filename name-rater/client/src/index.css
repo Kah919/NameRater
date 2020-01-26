@@ -9,5 +9,6 @@
   }
   50% {
     bottom: 1px;
+    opacity: 0;
   }
 }

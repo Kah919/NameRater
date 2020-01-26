@@ -4,12 +4,12 @@ import styled from 'styled-components';
 const Arrow = styled.p`
     width: 0;
 	height: 0;
-	border-left: 25px solid transparent;
-	border-right: 25px solid transparent;
-	border-top: 50px solid #555;
+	border-left: 18px solid transparent;
+	border-right: 18px solid transparent;
+	border-top: 25px solid #555;
     float: right;
     position: relative;
-    margin-top: -2%;
+    margin-top: -4%;
 `;
 
 export default (props) => {
