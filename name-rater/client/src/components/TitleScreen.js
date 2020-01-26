@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router';
-import Typist from 'react-typist';
 import Oak from './oak.jpg';
-
+import Text from './text';
 
 
 const Div = styled.div`
@@ -35,7 +34,8 @@ class TitleScreen extends Component {
             "People call me",
             "the Pokemon Prof!",
             "First are you a boy or a girl?"
-        ]
+        ],
+        test: false
     }
 
     redirect = () => {
@@ -52,33 +52,22 @@ class TitleScreen extends Component {
 
     nextText = () => {
         this.setState({
-            message: this.state.message.slice(2)
+            message: [...this.state.message.splice(2)],
         })
-
-        console.log(this.state.message)
     }
 
     text = () => {
-        return(
-            <Typist onTypingDone={this.nextText}>
-                <p> {this.state.message[0]} </p>
-                <Typist.Delay ms={500} />
-                <p> {this.state.message[1]} </p>
-            </Typist>
-        )
+        return this.state.message.length < 1 ? this.redirect() : <Text msg1={this.state.message[0]} msg2={this.state.message[1]}/>
     }
-
-
 
     render() {
         return (
             this.state.redirect ? this.isRedirect() : 
             <>
-            <Img src={Oak} alt="Oak"></Img>
-            <Div onClick={ this.redirect }>
-            {this.text()}
-
-            </Div>
+                <Img src={Oak} alt="Oak"></Img>
+                <Div onClick={ this.nextText }>
+                    {this.text()}
+                </Div>  
             </>
         )
     }    
