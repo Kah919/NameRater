@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Redirect } from 'react-router';
 import Oak from './oak.jpg';
 import Text from './text';
+import GenderForm from './GenderForm';
 
 
 const Div = styled.div`
@@ -18,11 +19,12 @@ const Div = styled.div`
 const Container = styled.div`
     height: 100vh;
     display: grid;
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 2fr 1fr;
 `;
 
 const Img = styled.img`
     display: block;
+    width: 25%;
     margin-left: auto;
     margin-right: auto;
 `;
