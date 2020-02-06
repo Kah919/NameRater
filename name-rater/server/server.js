@@ -16,14 +16,10 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(err => console.log(err));
 
 // Use routes
-<<<<<<< HEAD
-app.use('/api/names', name); // using the routes file called name and giving /api/names to all of the requests  
-=======
 app.use('/api/names', name);
 // app.get('/api/names', function (req, res, next) {
 //     res.json({msg: 'This is CORS-enabled for all origins!'})
 //   })  
->>>>>>> master
 
 const port = 5000;
 
