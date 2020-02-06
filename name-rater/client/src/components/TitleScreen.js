@@ -31,7 +31,6 @@ const Img = styled.img`
 
 class TitleScreen extends Component {
     state = {
-        redirect: false,
         message: [
             "Hello there! Welcome to the",
             "World of Pokemon!",
@@ -40,39 +39,37 @@ class TitleScreen extends Component {
             "the Pokemon Prof!",
             "First are you a boy or a girl?"
         ],
-        test: false
-    }
-
-    redirect = () => {
-        this.setState({
-            redirect: true
-        })
-    }
-
-    isRedirect = () => {
-        if(this.state.redirect) {
-            return <Redirect to="/search" />
-        }
+        genderForm: false
     }
 
     nextText = () => {
-        this.setState({
-            message: [...this.state.message.splice(2)],
-        })
+        if(this.state.message.length > 2) {
+            this.setState({
+                message: [...this.state.message.splice(2)],
+            })
+        } else {
+            this.renderGenderForm()
+        }
     }
 
     text = () => {
-        return this.state.message.length < 1 ? this.redirect() : <Text msg1={this.state.message[0]} msg2={this.state.message[1]}/>
+        return <Text msg1={this.state.message[0]} msg2={this.state.message[1]}/>
+    }
+
+    renderGenderForm = () => {
+        this.setState({
+            genderForm: true
+        })
     }
 
     render() {
         return (
-            this.state.redirect ? this.isRedirect() : 
             <Container>
                 <Img src={Oak} alt="Oak"></Img>
                 <Div onClick={ this.nextText }>
                     {this.text()}
-                </Div>  
+                </Div> 
+                { this.state.genderForm ? <GenderForm /> : null }
             </Container>
         )
     }    
