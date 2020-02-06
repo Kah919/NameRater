@@ -5,8 +5,9 @@ const Male = require('./models/Male');
 const Female = require('./models/Female');
 require("dotenv").config();
 const name = require('./routes/api/names');
+const cors = require('cors');
 const bodyParser = require('body-parser'); // allow us to take request and get data from the body 
-app.use(bodyParser.json());
+app.use(bodyParser.json(), cors());
 
 const db = require('./config/keys').mongoURI;
 
@@ -15,8 +16,20 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(err => console.log(err));
 
 // Use routes
+<<<<<<< HEAD
 app.use('/api/names', name); // using the routes file called name and giving /api/names to all of the requests  
+=======
+app.use('/api/names', name);
+// app.get('/api/names', function (req, res, next) {
+//     res.json({msg: 'This is CORS-enabled for all origins!'})
+//   })  
+>>>>>>> master
 
 const port = 5000;
 
-app.listen(port, () => console.log(`server started on ${port}`));
+app.listen(port, () => {
+    console.log(`server started on ${port}`)
+    // console.log(`CORS-enabled web server listening on ${port}`)
+});
+
+
