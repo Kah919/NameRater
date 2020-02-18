@@ -12,3 +12,18 @@
     opacity: 0;
   }
 }
+
+.oak {
+    width: 30vw;
+    margin: 0 auto;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 600px) {
+  .oak {
+    border: 1px solid black;
+    
+  }
+}
+
+/* End of Mobile Responsiveness */

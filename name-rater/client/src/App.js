@@ -5,7 +5,7 @@ import Form from './components/Form';
 import TitleScreen from './components/TitleScreen'
 import Result from './components/Result'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import audio from './audio.mp3';
+import audio from './audio/audio.mp3';
 
 class App extends Component {
   state = {

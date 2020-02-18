@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router';
-import Oak from './oak.jpg';
+import Oak from '../pics/oak.jpg';
 import Text from './text';
 import GenderForm from './GenderForm';
+import Click from '../audio/click.mp3';
 
 
 const Div = styled.div`
@@ -12,22 +13,22 @@ const Div = styled.div`
     width: 100%;
     border-radius: 10px;
     font-size: 4vw;
-    padding: 2%;
+    padding: 0;
     font-family: 'pokemon-font', monospace;
 `;
 
 const Container = styled.div`
     height: 100vh;
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
 `;
 
-const Img = styled.img`
-    display: block;
-    width: 25%;
-    margin-left: auto;
-    margin-right: auto;
-`;
+// const Img = styled.img`
+//     display: block;
+//     width: 25%;
+//     margin-left: auto;
+//     margin-right: auto;
+// `;
 
 class TitleScreen extends Component {
     state = {
@@ -42,7 +43,10 @@ class TitleScreen extends Component {
         genderForm: false
     }
 
+    audio = new Audio(Click);
+
     nextText = () => {
+        this.audio.play()
         if(this.state.message.length > 2) {
             this.setState({
                 message: [...this.state.message.splice(2)],
@@ -62,10 +66,12 @@ class TitleScreen extends Component {
         })
     }
 
+    
+
     render() {
         return (
             <Container>
-                <Img src={Oak} alt="Oak"></Img>
+                <img className="oak" src={Oak} alt="Oak"></img>
                 <Div onClick={ this.nextText }>
                     {this.text()}
                 </Div> 
