@@ -16,6 +16,7 @@ class App extends Component {
   audio = new Audio(audio);
   
   render() {
+    this.audio.volume = 0.3
     {this.audio.play()}
     return (
       // Switch matches the 'path' to the first URL param that comes up;
