@@ -22,8 +22,8 @@ const Gender = styled.h1`
 export default (props) => {
     return (
         <Container>
-            <Gender className="hover_arrow"> Boy </Gender>
-            <Gender className="hover_arrow"> Girl </Gender>
+            <Gender className="hover_arrow" data-gender="male" onClick={ props.handleGenderSelect }> Boy </Gender>
+            <Gender className="hover_arrow" data-gender="female" onClick={ props.handleGenderSelect }> Girl </Gender>
         </Container>
     )
 }

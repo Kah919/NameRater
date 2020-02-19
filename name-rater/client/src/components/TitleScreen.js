@@ -35,7 +35,8 @@ class TitleScreen extends Component {
             "the Pokemon Prof!",
             "First are you a boy or a girl?"
         ],
-        genderForm: false
+        genderForm: false,
+        gender: ""
     }
 
     audio = new Audio(Click);
@@ -61,16 +62,32 @@ class TitleScreen extends Component {
         })
     }
 
+    handleGenderSelect = (event) => {
+        this.setState({
+            gender: event.target.dataset.gender
+        })
+    }
+
+    renderRedirect = () => {
+        if(this.state.gender) {
+            return <Redirect to={{
+                pathname: '/search',
+                state: { gender: this.state.gender }
+            }} />
+        }
+    }
+
     
 
     render() {
         return (
             <Container>
+                { this.renderRedirect() }
                 <img className="oak" src={Oak} alt="Oak"></img>
                 <Div onClick={ this.nextText }>
                     {this.text()}
                 </Div> 
-                { this.state.genderForm ? <BoyGirlForm /> : null }
+                { this.state.genderForm ? <BoyGirlForm handleGenderSelect={ this.handleGenderSelect }/> : null }
             </Container>
         )
     }    
