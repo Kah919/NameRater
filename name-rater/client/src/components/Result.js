@@ -3,7 +3,6 @@ import Loading from './Loading';
 import { Redirect } from 'react-router'
 
 
-
 class Result extends Component {
     state = {
         user: {},

@@ -4,6 +4,8 @@ import { Redirect } from 'react-router';
 import Oak from '../pics/oak.jpg';
 import Text from './text';
 import GenderForm from './GenderForm';
+import BoyGirlForm from './BoyGirlForm';
+
 import Click from '../audio/click.mp3';
 
 
@@ -22,13 +24,6 @@ const Container = styled.div`
     display: grid;
     grid-template-rows: 3fr 1fr;
 `;
-
-// const Img = styled.img`
-//     display: block;
-//     width: 25%;
-//     margin-left: auto;
-//     margin-right: auto;
-// `;
 
 class TitleScreen extends Component {
     state = {
@@ -75,7 +70,7 @@ class TitleScreen extends Component {
                 <Div onClick={ this.nextText }>
                     {this.text()}
                 </Div> 
-                { this.state.genderForm ? <GenderForm /> : null }
+                { this.state.genderForm ? <BoyGirlForm /> : null }
             </Container>
         )
     }    
