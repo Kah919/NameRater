@@ -5,7 +5,6 @@ import Oak from '../pics/oak.jpg';
 import Text from './text';
 import GenderForm from './GenderForm';
 import BoyGirlForm from './BoyGirlForm';
-
 import Click from '../audio/click.mp3';
 
 
@@ -71,6 +70,7 @@ class TitleScreen extends Component {
                     {this.text()}
                 </Div> 
                 { this.state.genderForm ? <BoyGirlForm /> : null }
+
             </Container>
         )
     }    
