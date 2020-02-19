@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from './loading.gif';
+import Loading from '../pics/loading.gif';
 import styled from 'styled-components';
 
 export default () => {

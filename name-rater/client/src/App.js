@@ -5,7 +5,7 @@ import Form from './components/Form';
 import TitleScreen from './components/TitleScreen'
 import Result from './components/Result'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import audio from './audio.mp3';
+import audio from './audio/audio.mp3';
 
 class App extends Component {
   state = {
@@ -16,6 +16,7 @@ class App extends Component {
   audio = new Audio(audio);
   
   render() {
+    this.audio.volume = 0.3
     {this.audio.play()}
     return (
       // Switch matches the 'path' to the first URL param that comes up;

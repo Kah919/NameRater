@@ -1,4 +1,3 @@
-const Data = require('./data.js');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');

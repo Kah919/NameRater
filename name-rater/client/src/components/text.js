@@ -10,14 +10,20 @@ const Arrow = styled.p`
     float: right;
     position: relative;
     margin-top: -4%;
+    margin-right: 3%;
+`;
+
+const P = styled.p`
+    margin-left: 8%;
+    padding: 0.5%;
 `;
 
 export default (props) => {
 
     return(
         <>
-            <p>{props.msg1}</p>
-            <p>{props.msg2}</p>
+            <P>{props.msg1}</P>
+            <P>{props.msg2}</P>
             <Arrow className="arrow"></Arrow>            
         </>
     )
