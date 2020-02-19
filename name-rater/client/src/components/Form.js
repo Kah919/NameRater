@@ -69,6 +69,7 @@ class Form extends Component {
     }
 
     render() {
+        debugger
         return(
             <div>
                 { this.state.modal ? <ErrorModal stopModal={ this.stopModal } isOpen={ this.state.modal }/> : null }
