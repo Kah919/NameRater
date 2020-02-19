@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Redirect } from 'react-router';
 import Oak from './oak.jpg';
 import Text from './text';
-import GenderForm from './GenderForm';
+import Form from './Form';
 
 
 const Div = styled.div`
@@ -69,7 +69,7 @@ class TitleScreen extends Component {
                 <Div onClick={ this.nextText }>
                     {this.text()}
                 </Div> 
-                { this.state.genderForm ? <GenderForm /> : null }
+                { this.state.genderForm ? <Form /> : null }
             </Container>
         )
     }    
