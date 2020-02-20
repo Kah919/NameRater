@@ -13,10 +13,10 @@ class Result extends Component {
     }
 
     componentDidMount() {
-        if(!this.props.location.formProps){
+        if(!this.props.formProps){
             this.setState({redirect: true})
         } else {
-            const params = this.props.location.formProps;
+            const params = this.props.formProps;
             let lower = params.name.toLowerCase()
             let normalized = lower.charAt(0).toUpperCase() + lower.slice(1)
             fetch(`http://localhost:5000/api/names/${params.sex}`)
@@ -35,7 +35,7 @@ class Result extends Component {
                     })
                 })
                 .catch(err => {
-                    alert(`Congradulations! Your name ${this.props.location.formProps.name} is super rare and has not been updated in our database yet! Redirecting back to home page...`);
+                    alert(`Congradulations! Your name ${this.props.formProps.name} is super rare and has not been updated in our database yet! Redirecting back to home page...`);
                     this.setState({
                         redirect: true
                     })

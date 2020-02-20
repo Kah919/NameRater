@@ -22,45 +22,7 @@ class Form extends Component {
         }
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("submitting", this.state.name)
-        this.setState({submit: !this.state.submit})
-    }
-
-    handleChange = (event) => {
-        let charCode = this.findCharCode(event.target.value)
-        this.backSpace(charCode);
-        this.validInput(charCode, event.target.value);
-    }
-
-    findCharCode = (value) => {
-        if(!this.state.name.length) {
-            return value.charCodeAt()
-        } else if(this.state.name.length >= 1) {
-            return value.charCodeAt(this.state.name.length)
-        }
-    }
-
-    backSpace = charCode => {
-        if(!charCode) {
-            this.setState({
-                name: this.state.name.slice(0, -1)
-            })
-        }
-    }
-
-    validInput = (charCode, value) => {
-        if((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
-            this.setState({
-                name: value
-            })
-        } else if(charCode){
-            this.setState({
-                modal: true
-            })
-        }
-    }
+    
 
     stopModal = () => {
         this.setState({
