@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import ResultContainer from '../containers/ResultContainer'
-// import Result  from './Result';
+import Result  from './Result';
 // import { Link, Redirect } from 'react-router-dom';
 import ErrorModal from './ErrorModal';
 import GenderForm from './GenderForm';

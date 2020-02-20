@@ -2,30 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router';
 import Oak from '../pics/oak.jpg';
-import Text from './text';
-import GenderForm from './GenderForm';
-import BoyGirlForm from './BoyGirlForm';
-
+import Text from '../components/text';
+import GenderForm from '../components/GenderForm';
+import BoyGirlForm from '../components/BoyGirlForm';
 import Click from '../audio/click.mp3';
 
-
-const Div = styled.div`
-    border: 5px solid black;
-    border-style: double;
-    width: 100%;
-    border-radius: 10px;
-    font-size: 4vw;
-    padding: 0;
-    font-family: 'pokemon-font', monospace;
-`;
-
-const Container = styled.div`
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 3fr 1fr;
-`;
-
-class TitleScreen extends Component {
+class Intro extends Component {
     state = {
         message: [
             "Hello there! Welcome to the",
@@ -71,26 +53,25 @@ class TitleScreen extends Component {
     renderRedirect = () => {
         if(this.state.gender) {
             return <Redirect to={{
-                pathname: '/input',
+                pathname: '/search',
                 state: { gender: this.state.gender }
             }} />
         }
     }
 
     
-
     render() {
         return (
-            <Container>
+            <div className="title_container">
                 { this.renderRedirect() }
                 <img className="oak" src={Oak} alt="Oak"></img>
-                <Div onClick={ this.nextText }>
+                <div className="text" onClick={ this.nextText }>
                     {this.text()}
-                </Div> 
+                </div> 
                 { this.state.genderForm ? <BoyGirlForm handleGenderSelect={ this.handleGenderSelect }/> : null }
-            </Container>
+            </div>
         )
     }    
 }
 
-export default TitleScreen;
+export default Intro;
