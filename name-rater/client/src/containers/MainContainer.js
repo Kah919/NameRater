@@ -8,6 +8,13 @@ class MainContainer extends Component{
         name: ""
     }
 
+    handleGenderSelect = (event) => {
+        debugger
+        this.setState({
+            gender: event.target.dataset.gender
+        })
+    }
+
     renderComponent = () => {
         if(this.state.name) {
             // return result component
@@ -15,7 +22,7 @@ class MainContainer extends Component{
             // return name component
         } else {
             // return intro component
-            return <Intro />
+            return <Intro handleGenderSelect={ this.handleGenderSelect }/>
         }
     }
 
