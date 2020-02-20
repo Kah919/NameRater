@@ -6,6 +6,8 @@ import TitleScreen from './components/TitleScreen'
 import Result from './components/Result'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import audio from './audio/audio.mp3';
+import GenderForm from './components/GenderForm';
+import NameForm from './components/NameForm'
 
 class App extends Component {
   state = {
@@ -24,6 +26,8 @@ class App extends Component {
       // 'component' points the path to render the desired component;
       <Switch>
         <Route exact path='/' component={TitleScreen}/>
+        <Route exact path='/select' component={GenderForm}/>
+        <Route exact path='/input' component={NameForm}/>
         <Route exact path='/search' component={Form}/>
         <Route exact path='/results' component={Result}/>
       </Switch>

@@ -71,7 +71,7 @@ class TitleScreen extends Component {
     renderRedirect = () => {
         if(this.state.gender) {
             return <Redirect to={{
-                pathname: '/search',
+                pathname: '/input',
                 state: { gender: this.state.gender }
             }} />
         }

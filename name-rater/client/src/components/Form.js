@@ -69,7 +69,7 @@ class Form extends Component {
     }
 
     render() {
-        debugger
+        console.log(this.props.location.state.gender)
         return(
             <div>
                 { this.state.modal ? <ErrorModal stopModal={ this.stopModal } isOpen={ this.state.modal }/> : null }
