@@ -17,8 +17,7 @@ class Intro extends Component {
             "the Pokemon Prof!",
             "First are you a boy or a girl?"
         ],
-        genderForm: false,
-        gender: ""
+        genderForm: false
     }
 
     audio = new Audio(Click);
@@ -44,12 +43,6 @@ class Intro extends Component {
         })
     }
 
-    handleGenderSelect = (event) => {
-        this.setState({
-            gender: event.target.dataset.gender
-        })
-    }
-
     renderRedirect = () => {
         if(this.state.gender) {
             return <Redirect to={{
@@ -68,7 +61,7 @@ class Intro extends Component {
                 <div className="text" onClick={ this.nextText }>
                     {this.text()}
                 </div> 
-                { this.state.genderForm ? <BoyGirlForm handleGenderSelect={ this.handleGenderSelect }/> : null }
+                { this.state.genderForm ? <BoyGirlForm handleGenderSelect={ this.props.handleGenderSelect }/> : null }
             </div>
         )
     }    
