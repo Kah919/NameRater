@@ -2,32 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router';
 import Oak from '../pics/oak.jpg';
-import Text from './text';
-import GenderForm from './GenderForm';
-import BoyGirlForm from './BoyGirlForm';
+import Text from '../components/text';
+import GenderForm from '../components/GenderForm';
+import BoyGirlForm from '../components/BoyGirlForm';
 import Click from '../audio/click.mp3';
 
-
-// const Div = styled.div`
-//     border: 5px solid black;
-//     border-style: double;
-//     width: 100%;
-//     border-radius: 10px;
-//     font-size: 4vw;
-//     padding: 0;
-//     font-family: 'pokemon-font', monospace;
-//     bottom: 0;
-//     position: fixed;
-//     grid-area: text;
-// `;
-
-// const Container = styled.div`
-//     display: grid;
-//     grid-template-columns: [main] 80% [side] 20%;
-//     grid-template-rows: [row1] 30% [row2] 10% [row3] 30% [row4] 30%;
-// `;
-
-class TitleScreen extends Component {
+class Intro extends Component {
     state = {
         message: [
             "Hello there! Welcome to the",
@@ -94,4 +74,4 @@ class TitleScreen extends Component {
     }    
 }
 
-export default TitleScreen;
+export default Intro;

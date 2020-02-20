@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import ResultContainer from '../containers/ResultContainer'
-// import Result  from './Result';
+import Result  from './Result';
 // import { Link, Redirect } from 'react-router-dom';
 import ErrorModal from './ErrorModal';
 import GenderForm from './GenderForm';
@@ -69,7 +69,7 @@ class Form extends Component {
     }
 
     render() {
-        debugger
+        console.log(this.props.location.state.gender)
         return(
             <div>
                 { this.state.modal ? <ErrorModal stopModal={ this.stopModal } isOpen={ this.state.modal }/> : null }

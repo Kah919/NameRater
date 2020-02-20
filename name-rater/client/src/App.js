@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-// BrowserRouter is called in the top most component so you can call methods 'Switch', 'Route', 'Link' in the render portion
 import { Switch, Route } from 'react-router-dom'
 import Form from './components/Form';
-import TitleScreen from './components/TitleScreen'
+import Intro from './containers/Intro'
 import Result from './components/Result'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import audio from './audio/audio.mp3';
+import GenderForm from './components/GenderForm';
+import NameForm from './components/NameForm'
+import MainContainer from './containers/MainContainer'
 
 class App extends Component {
   state = {
@@ -23,7 +25,10 @@ class App extends Component {
       // 'exact' is a key word, it requires  the path to match the URL exact; 
       // 'component' points the path to render the desired component;
       <Switch>
-        <Route exact path='/' component={TitleScreen}/>
+        <Route exact path='/' component={MainContainer}/>
+        <Route exact path='/intro' componnet={Intro}/>
+        <Route exact path='/select' component={GenderForm}/>
+        <Route exact path='/input' component={NameForm}/>
         <Route exact path='/search' component={Form}/>
         <Route exact path='/results' component={Result}/>
       </Switch>
