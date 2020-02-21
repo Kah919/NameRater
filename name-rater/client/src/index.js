@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// Imported BrowserRouter in Index
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';

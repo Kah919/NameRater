@@ -4,7 +4,6 @@ import NameForm from '../components/NameForm';
 import Result from '../components/Result';
 
 class MainContainer extends Component{
-    
     state = {
         gender: "",
         name: "",
@@ -60,10 +59,8 @@ class MainContainer extends Component{
 
     renderComponent = () => {
         if(this.state.submit) {
-            // return result component
             return <Result formProps={ { name: this.state.name, sex: this.state.gender }}/>
         } else if(this.state.gender) {
-            // return name component
             return <NameForm value={ this.state.name } handleChange={ this.handleChange } handleSubmit={ this.handleSubmit } />
         } else {
             return <Intro handleGenderSelect={ this.handleGenderSelect }/>
@@ -71,7 +68,6 @@ class MainContainer extends Component{
     }
 
     render(){
-        console.log(this.state)
         return(
             <div>
                 { this.renderComponent() }
