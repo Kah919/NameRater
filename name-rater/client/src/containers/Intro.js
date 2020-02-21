@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { Redirect } from 'react-router';
 import Oak from '../pics/oak.jpg';
-import Text from '../components/text';
+import Text from '../components/Text';
 import GenderForm from '../components/GenderForm';
-import BoyGirlForm from '../components/BoyGirlForm';
 import Click from '../audio/click.mp3';
 
 class Intro extends Component {
@@ -61,7 +59,7 @@ class Intro extends Component {
                 <div className="text" onClick={ this.nextText }>
                     {this.text()}
                 </div> 
-                { this.state.genderForm ? <BoyGirlForm handleGenderSelect={ this.props.handleGenderSelect }/> : null }
+                { this.state.genderForm ? <GenderForm handleGenderSelect={ this.props.handleGenderSelect }/> : null }
             </div>
         )
     }    
