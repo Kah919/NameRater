@@ -14,7 +14,7 @@ class NameForm extends Component {
             <div className="name_container">
                 <div className="name_top">
                     <h1 className="name_title">Your Name?</h1>
-                    <Img src={this.props.gender === "male" ? Red : Hilda }></Img>
+                    <Img className="trainer" src={this.props.gender === "male" ? Red : Hilda }></Img>
                     <form className="name_form" onSubmit={this.props.handleSubmit}>
                         <input className="name_input" type='text' name='name' value={ this.props.value } onChange={ this.props.handleChange }/>
                         <Button outline color="secondary" className="name_submit">Submit</Button>

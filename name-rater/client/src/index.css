@@ -162,6 +162,45 @@
     ". image form"
     "text text text"
   }
+
+
+  /* Name Container Mobile */
+  .alphabets {
+    display: none;
+  }
+
+  .name_title {
+    font-size: 3.5em;
+    text-align: center;
+    margin-top: 10%;
+    grid-area: name_title
+  }
+
+  .trainer {
+    width: 150px;
+    height: 150px;
+    grid-area: trainer
+  }
+
+  .name_form {
+    width: 90%;    
+    margin: 0 auto;
+    grid-area: name_form
+  }
+
+  .name_top {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "name_title"
+    "name_form"
+    "trainer"
+  }
+
+
+
+  /* End of Name Container Mobile */
+
 }
 
 
