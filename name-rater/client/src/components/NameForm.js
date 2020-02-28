@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import Red from '../pics/red.png';
 import Hilda from '../pics/hilda.png';
+import styled from 'styled-components';
+
+const Img = styled.img`
+    margin: 0 auto;
+`;
 
 class NameForm extends Component {
     render() {
@@ -9,7 +14,7 @@ class NameForm extends Component {
             <div className="name_container">
                 <div className="name_top">
                     <h1 className="name_title">Your Name?</h1>
-                    <img src={this.props.gender === "male" ? Red : Hilda }></img>
+                    <Img src={this.props.gender === "male" ? Red : Hilda }></Img>
                     <form className="name_form" onSubmit={this.props.handleSubmit}>
                         <input className="name_input" type='text' name='name' value={ this.props.value } onChange={ this.props.handleChange }/>
                         <Button outline color="secondary" className="name_submit">Submit</Button>
