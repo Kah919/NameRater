@@ -35,7 +35,7 @@ class Result extends Component {
                     })
                 })
                 .catch(err => {
-                    alert(`Congradulations! Your name ${this.props.formProps.name} is super rare and has not been updated in our database yet! Redirecting back to home page...`);
+                    alert(`Congratulations! Your name ${this.props.formProps.name} is super rare and has not been updated in our database yet! Redirecting back to home page...`);
                     this.setState({
                         redirect: true
                     })

@@ -29,7 +29,6 @@ class MainContainer extends Component{
 
     handleChange = (event) => {
         let charCode = this.findCharCode(event.target.value)
-        this.backSpace(charCode);
         this.validInput(charCode, event.target.value);
     }
 
@@ -41,16 +40,9 @@ class MainContainer extends Component{
         }
     }
 
-    backSpace = charCode => {
-        if(!charCode) {
-            this.setState({
-                name: this.state.name.slice(0, -1)
-            })
-        }
-    }
 
     validInput = (charCode, value) => {
-        if((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+        if((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || !charCode) {
             this.setState({
                 name: value
             })
