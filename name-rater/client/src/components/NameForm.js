@@ -20,7 +20,7 @@ class NameForm extends Component {
                         <Button outline color="secondary" className="name_submit">Submit</Button>
                     </form>
                 </div>
-                <div className="alphabets">
+                <div className="alphabets" onClick={ this.props.handleClick }>
                     <div className="row row1">
                         <p>A</p>
                         <p>B</p>

@@ -19,6 +19,14 @@ class MainContainer extends Component{
         })
     }
 
+    handleClick = (event) => {
+        if(event.target.tagName == "P") {
+            this.setState({
+                name: this.state.name += event.target.innerText
+            })
+        }
+    }
+
     handleChange = (event) => {
         let charCode = this.findCharCode(event.target.value)
         this.backSpace(charCode);
@@ -69,7 +77,7 @@ class MainContainer extends Component{
         if(this.state.submit) {
             return <Result formProps={ { name: this.state.name, sex: this.state.gender }}/>
         } else if(this.state.gender) {
-            return <NameForm value={ this.state.name } handleChange={ this.handleChange } handleSubmit={ this.handleSubmit } gender={ this.state.gender}/>
+            return <NameForm value={ this.state.name } handleClick={ this.handleClick } handleChange={ this.handleChange } handleSubmit={ this.handleSubmit } gender={ this.state.gender}/>
         } else {
             return <Intro handleGenderSelect={ this.handleGenderSelect }/>
         }
