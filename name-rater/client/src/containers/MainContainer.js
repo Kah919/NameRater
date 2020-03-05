@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import Intro from './Intro';
 import NameForm from '../components/NameForm';
 import Result from '../components/Result';
+import ErrorModal from '../components/ErrorModal';
+
 
 class MainContainer extends Component{
     state = {
         gender: "",
         name: "",
-        submit: false
+        submit: false,
+        modal: false
     }
 
     handleGenderSelect = (event) => {
@@ -44,10 +47,9 @@ class MainContainer extends Component{
                 name: value
             })
         } else if(charCode){
-            // this.setState({
-            //     modal: true
-            // })
-            alert("WRONG INPUT")
+            this.setState({
+                modal: true
+            })
         }
     }
 
@@ -57,11 +59,17 @@ class MainContainer extends Component{
         this.setState({submit: true})
     }
 
+    stopModal = () => {
+        this.setState({
+            modal: false
+        })
+    }
+
     renderComponent = () => {
         if(this.state.submit) {
             return <Result formProps={ { name: this.state.name, sex: this.state.gender }}/>
         } else if(this.state.gender) {
-            return <NameForm value={ this.state.name } handleChange={ this.handleChange } handleSubmit={ this.handleSubmit } />
+            return <NameForm value={ this.state.name } handleChange={ this.handleChange } handleSubmit={ this.handleSubmit } gender={ this.state.gender}/>
         } else {
             return <Intro handleGenderSelect={ this.handleGenderSelect }/>
         }
@@ -70,6 +78,7 @@ class MainContainer extends Component{
     render(){
         return(
             <div>
+                { this.state.modal ? <ErrorModal stopModal={ this.stopModal } isOpen={ this.state.modal }/> : null }
                 { this.renderComponent() }
             </div>
         )

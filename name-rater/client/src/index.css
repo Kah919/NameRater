@@ -1,3 +1,8 @@
+* {
+  font-family: 'pokemon-font', monospace;
+}
+
+/* Start of Intro */
 .arrow {
   animation: MoveUpDown 3s linear infinite;
   position: absolute;
@@ -18,7 +23,7 @@
 }
 
 .oak {
-    width: 35%;
+    width: 30%;
     margin: 0 auto;
     grid-area: image;
 }
@@ -30,7 +35,6 @@
   border-radius: 10px;
   font-size: 3em;
   padding: 0;
-  font-family: 'pokemon-font', monospace;
   grid-area: text;
 }
 
@@ -38,28 +42,94 @@
   margin-top: 2%;
 }
 
-.gender_form {
-    border: 5px solid black;
-    border-style: double;
-    border-radius: 10px;
-    font-size: 2em;
-    padding: 0;
-    font-family: 'pokemon-font', monospace;
-    grid-area: form;
+.gender_select {
+  margin: 0 0 0 25%;
+  font-size: 30px;
 }
+
+.gender_form {
+  border: 5px solid black;
+  border-style: double;
+  border-radius: 10px;
+  padding: 0;
+  grid-area: form;
+}
+
+/* End of Intro */
+
+
+/* Start of Name Form */
+.name_container {
+  width: 100vw;
+}
+
+.alphabets {
+  width: 99%;
+  border: 5px solid black;
+  border-style: double;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.row p {
+  font-size: 4em;
+  padding: 0.5em;
+  margin: 0 auto;
+}
+
+.name_title {
+  font-size: 4em;
+  margin-left: 2%;
+}
+
+.name_input {
+  width: 100%;
+  height: 1.8em;
+  float: right;
+  border: 5px solid black;
+  border-style: double;
+  border-radius: 10px;
+}
+
+.name_input[type="text"] {
+  font-size: 36px;
+}
+
+.name_submit {
+  height: 4em;
+  margin: 0 auto;
+}
+
+.name_top {
+  display: flex;
+  width: 100%;
+}
+
+.name_form {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* End of Name Form */
 
 /* Container Grid */
 .title_container {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 85% 15%;
-  grid-template-rows: 30% 25% 15% 30%;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 10% 40% 15% 35%;
   grid-template-areas:
-    "image ."
-    "image ."
-    "image form"
-    "text text"
+    ". . ."
+    ". image ."
+    ". image form"
+    "text text text"
 }
 
 /* End of Container Grid */
@@ -67,7 +137,7 @@
 /* Mobile Responsiveness */
 @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) {
   .oak {
-    width: 150%;
+    width: 130%;
   }
 
   .text {
@@ -78,10 +148,59 @@
     margin-top: 10%;
   }
 
-  .title_container {
-    grid-template-columns: 65% 35%;
-    grid-template-rows: 30% 28% 15% 27%;
+  .gender_select {
+    margin: 0 0 0 25%;
+    font-size: 24px;
   }
+
+  .title_container {
+    grid-template-columns: 15% 55% 30%;
+    grid-template-rows: 12% 45% 13% 30%;
+    grid-template-areas:
+    ". . ."
+    ". image ."
+    ". image form"
+    "text text text"
+  }
+
+
+  /* Name Container Mobile */
+  .alphabets {
+    display: none;
+  }
+
+  .name_title {
+    font-size: 3.5em;
+    text-align: center;
+    margin-top: 10%;
+    grid-area: name_title
+  }
+
+  .trainer {
+    width: 150px;
+    height: 150px;
+    grid-area: trainer
+  }
+
+  .name_form {
+    width: 90%;    
+    margin: 0 auto;
+    grid-area: name_form
+  }
+
+  .name_top {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "name_title"
+    "name_form"
+    "trainer"
+  }
+
+
+
+  /* End of Name Container Mobile */
+
 }
 
 
