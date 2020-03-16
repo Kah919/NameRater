@@ -101,12 +101,13 @@ class Result extends Component {
         return(
             this.state.redirect ? this.isRedirect() : 
             this.state.loading ? <Loading /> :
-            <div>
+            <div className='results_page'>
                 <div className="user_header">👑{this.state.user.index}. {this.state.user.name}</div>
-                {this.renderPrevFive()}
-                <div className="user_name_list_item">{this.state.user.index}. {this.state.user.name} - {this.state.user.count * 20}x</div>
-                {this.renderNextFive()}
-
+                <div className='results_list_container'>
+                    {this.renderPrevFive()}
+                    <div className="user_name_list_item">{this.state.user.index}. {this.state.user.name} - {this.state.user.count * 20}x</div>
+                    {this.renderNextFive()}
+                </div>
             </div> 
         )
     }
