@@ -51,7 +51,7 @@ class Result extends Component {
     }
 
     renderPrevFive = () => {
-            return this.state.prevFive.map(item => <div className={`prev_name_list_item_${item.index}`} key={`${item.name}${item.index}`}>{item.index}. {item.name} - {item.count * 20}x</div>)
+            return this.state.prevFive.map(item => <div className='prev_name_list_item' key={`${item.name}${item.index}`}>{item.index}. {item.name} - {item.count * 20}x</div>)
     }
 
     prevFive = (data, idx) => {
@@ -71,7 +71,7 @@ class Result extends Component {
     }
 
     renderNextFive = () => {
-        return this.state.nextFive.map(item => <div className={`next_name_list_item_${item.index}`} key={`${item.name}${item.index}`}>{item.index + 1}. {item.name} - {item.count * 20}x</div>)
+        return this.state.nextFive.map(item => <div className='next_name_list_item' key={`${item.name}${item.index}`}>{item.index + 1}. {item.name} - {item.count * 20}x</div>)
     }
 
     nextFive = (data, idx) => {

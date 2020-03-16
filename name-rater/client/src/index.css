@@ -220,6 +220,14 @@
   /* font-size: 1em; */
 }
 
+.next_name_list_item {
+
+}
+
+.pre_name_list_item {
+
+}
+
 .user_name_list_item {
   padding: .5em 0em .5em 0em;
   /* border: 5px solid black;
@@ -227,6 +235,7 @@
   border-radius: 10px; */
 
   font-weight: bold;
+  font-size: 1.5em;
 }
 
 /* End of Results */
