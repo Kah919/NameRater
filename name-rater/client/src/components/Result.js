@@ -104,9 +104,11 @@ class Result extends Component {
             <div className='results_page'>
                 <div className="user_header">👑{this.state.user.index}. {this.state.user.name}</div>
                 <div className='results_list_container'>
+                    <button>last five</button>
                     {this.renderPrevFive()}
                     <div className="user_name_list_item">{this.state.user.index}. {this.state.user.name} - {this.state.user.count * 20}x</div>
                     {this.renderNextFive()}
+                    <button>next five</button>
                 </div>
             </div> 
         )
