@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Loading from './Loading';
 import { Redirect } from 'react-router'
+import ResultListItem from './ResultListItem';
 
 
 class Result extends Component {
@@ -13,7 +14,9 @@ class Result extends Component {
 
         // index tracker
         prevIndex: null,
-        nextIndex: null
+        nextIndex: null,
+        lower: [],
+        upper: [],
     }
 
     componentDidMount() {
@@ -27,7 +30,7 @@ class Result extends Component {
                 .then(res => res.json())
                 .then(data => {
                     const person = this.createPerson(data, normalized)
-                    const curr = person.index
+                    const curr = person.index 
                     const prevFive = this.prevFive(data, curr);
                     const nextFive = this.nextFive(data, curr);
 
@@ -35,7 +38,9 @@ class Result extends Component {
                         user: person,
                         prevFive,
                         nextFive,
-                        loading: false
+                        loading: false,
+                        lower: data.slice(0, curr - 1).reverse(),
+                        upper: data.slice(curr),
                     })
                 })
                 .catch(err => {
@@ -110,7 +115,7 @@ class Result extends Component {
     }
 
     render() {
-        
+        // console.log("this is the upper", this.state.upper, "thisis the lower", this.state.lower)
         return(
             this.state.redirect ? this.isRedirect() : 
             this.state.loading ? <Loading /> :
@@ -118,12 +123,14 @@ class Result extends Component {
                 <div className="user_header">👑{this.state.user.index}. {this.state.user.name}</div>
                 <div className='results_list_container'>
                     {/* button architecture for last five */}
-                    <button className="last_five_button" onClick={this.handleLastFive}>last five</button>
-                    {this.renderPrevFive()}
+                    {/* <button className="last_five_button" onClick={this.handleLastFive}>last five</button> */}
+                    {/* {this.renderPrevFive()} */}
+                    <ResultListItem names={this.state.lower} lower={ true } userIdx={ this.state.user.index-6 } />
                     <div className="user_name_list_item">{this.state.user.index}. {this.state.user.name} - {this.state.user.count * 20}x</div>
-                    {this.renderNextFive()}
+                    <ResultListItem names={this.state.upper} lower={ false } userIdx={ this.state.user.index } />
+                    {/* {this.renderNextFive()} */}
                     {/* button architecture for next five */}
-                    <button className="next_five_button" onClick={this.handleNextFive}>next five</button>
+                    {/* <button className="next_five_button" onClick={this.handleNextFive}>next five</button> */}
                 </div>
             </div> 
         )
